@@ -1,0 +1,39 @@
+{
+    "name": "s2j-package-dashboard",
+    "version": "0.0.1",
+    "description": "S2J Package Dashboard is a dashboard application for Composer packages published on Packagist.",
+    "type": "module",
+    "author": "Koutarou ISHIKAWA",
+    "license": "GPL-3.0-or-later",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stein2nd/s2j-package-dashboard.git"
+    },
+    "homepage": "https://github.com/stein2nd/s2j-package-dashboard#readme",
+    "bugs": {
+        "url": "https://github.com/stein2nd/s2j-package-dashboard/issues"
+    },
+    "keywords": [
+        "SwiftUI",
+        "AppKit"
+    ],
+    "directories": {
+        "doc": "docs"
+    },
+    "files": [
+        "README.md",
+        "specs.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "lint:docs": "s2j-docs-linter ./README.md ./CHANGELOG.md ./docs/**/*.md ./docs_mod/**/*.md",
+        "test:local": "./scripts/test-local.sh",
+        "test:local:iOSfull": "./scripts/test-local.sh --ios-device \"iPad Pro\" --ios-version \"17.0\" --enable-xcode-project --xcodegen-auto-install"
+    },
+    "devDependencies": {
+        "@s2j/docs-linter": "^1.0.22"
+    },
+    "allowScripts": {
+        "@s2j/docs-linter": true
+    }
+}

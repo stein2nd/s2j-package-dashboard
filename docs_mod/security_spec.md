@@ -1,0 +1,1 @@
+# S2J Package Dashboard - セキュリティ・権限・プライバシー仕様

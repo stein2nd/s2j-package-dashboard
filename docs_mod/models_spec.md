@@ -1,0 +1,1 @@
+# S2J Package Dashboard - モデル定義仕様

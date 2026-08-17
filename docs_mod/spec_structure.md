@@ -1,0 +1,1 @@
+# S2J Package Dashboard - Swift アプリケーションにおける仕様書の細分化 — ベター・プラクティス
