@@ -1,6 +1,6 @@
 {
     "name": "s2j-package-dashboard",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "S2J Package Dashboard is a dashboard application for Composer packages published on Packagist.",
     "type": "module",
     "author": "Koutarou ISHIKAWA",
@@ -31,7 +31,7 @@
         "test:local:iOSfull": "./scripts/test-local.sh --ios-device \"iPad Pro\" --ios-version \"17.0\" --enable-xcode-project --xcodegen-auto-install"
     },
     "devDependencies": {
-        "@s2j/docs-linter": "^1.0.22"
+        "@s2j/docs-linter": "^1.0.24"
     },
     "allowScripts": {
         "@s2j/docs-linter": true
