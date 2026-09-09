@@ -2,6 +2,14 @@
 
 ## unreleased
 
+## 0.0.3 - 2026-09-10
+
+### Changed
+
+* GitHub Actions のプレースホルダーを実装に置き換え
+    * `docs-lint.yml`: Node.js v20で `npm run lint:docs` を実行
+    * `swift-test.yml`: macOS / iOS テスト、release ビルド、Codecov。Xcode v26.5 (Swift v6.3+) を使用
+
 ## 0.0.2 - 2026-09-10
 
 ### Added

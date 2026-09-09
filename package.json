@@ -1,6 +1,6 @@
 {
     "name": "s2j-package-dashboard",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "S2J Package Dashboard is a dashboard application for Composer packages published on Packagist.",
     "type": "module",
     "author": "Koutarou ISHIKAWA",
