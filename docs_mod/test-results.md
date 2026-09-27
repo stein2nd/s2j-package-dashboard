@@ -10,7 +10,7 @@
 
 ## 非目的
 
-本ドキュメントは、テスト戦略や Quality Gate を定義しない。手書きの仕様本文を持たない。
+本ドキュメントは、テスト戦略や 品質ゲート を定義しない。手書きの仕様本文を持たない。
 
 ## 責務
 
@@ -18,4 +18,4 @@
 
 ## 非責務
 
-何をテストするかは [`testing_spec.md`](./testing_spec.md)、CI での実行は [`cicd.md`](./cicd.md) を正本とする。
+何をテストするかは [`testing_spec.md`](../docs/testing_spec.md)、CI での実行は [`cicd.md`](../docs/cicd.md) を正本とします。

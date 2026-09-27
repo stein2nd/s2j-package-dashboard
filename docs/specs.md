@@ -20,7 +20,7 @@
 
 ## 非責務
 
-分割方針は [`spec_structure.md`](./spec_structure.md)、統合の見取り図は [`spec.md`](./spec.md)、各関心事の本文は各専門仕様を正本とする。
+分割方針は [`spec_structure.md`](./spec_structure.md)、統合の見取り図は [`spec.md`](./spec.md)、各関心事の本文は各専門仕様を正本とします。
 
 ## 共通仕様
 
@@ -30,7 +30,8 @@
 
 ## 関連仕様
 
-ファイルの名簿は本節を正本とする。分割方針は [`spec_structure.md`](./spec_structure.md)、統合の見取り図は [`spec.md`](./spec.md) とする。各ファイルの責務本文は、そのファイルの「責務」節とする。関係の見取り図を本仕様に再掲しない。カテゴリーは [`spec_structure.md`](./spec_structure.md) の層分類に合わせる。
+ファイルの名簿は本節を正本とします。
+分割方針は [`spec_structure.md`](./spec_structure.md)、統合の見取り図は [`spec.md`](./spec.md) とする。各ファイルの責務本文は、そのファイルの「責務」節とする。関係の見取り図を本仕様に再掲しない。カテゴリーは [`spec_structure.md`](./spec_structure.md) の層分類に合わせる。
 
 * 仕様構成
     * [仕様書の細分化](./spec_structure.md) — どの種類のファイルに何を置くか
@@ -40,26 +41,26 @@
 * アーキテクチャー
     * [アーキテクチャー](./architecture.md) — アーキテクチャー方針。「どう分割するか ?」
 * ドメイン
-    * [モデル定義仕様](./models_spec.md) — ドメイン型、Value オブジェクト、および外部/永続化/UI モデルとの層境界
+    * [モデル定義仕様](./models_spec.md) — ドメイン型、値オブジェクト、および外部/永続化/UI モデルとの層境界
     * [ドメイン・ルール仕様](./domain_rules.md) — 何が妥当か、何を混同してはいけないか
 * 外部連携
-    * [Packagist API 仕様](./api-packagist.md) — Packagist のエンドポイント、DTO、レート制限
+    * [Packagist API 仕様](./api-packagist.md) — Packagist のエンドポイント、データ転送オブジェクト (DTO)、レート制限
     * [GitHub API 仕様](./api-github.md) — GitHub のエンドポイント、DTO、レート制限
 * アプリケーション
     * [ユースケース仕様](./use_cases.md) — ユースケース仕様。「何を実現するか ?」
     * [アプリケーション状態の仕様](./application_state.md) — アプリケーション状態の仕様。「何を状態として保持するか ?」
-    * [状態機械の仕様](./state_machine.md) — 状態/Event/Transition の形式仕様。「状態がどう遷移するか ?」
+    * [状態機械の仕様](./state_machine.md) — 状態/イベント/遷移 の形式仕様。「状態がどう遷移するか ?」
 * プレゼンテーション
     * [UX フロー仕様](./ux_flows_spec.md) — UX フロー仕様。「どう操作されるか ?」
     * [ナビゲーション仕様](./navigation_spec.md) — ナビゲーション・アーキテクチャー
     * [スクリーン仕様](./screen_spec.md) — スクリーン・アーキテクチャー
     * [コンポーネント仕様](./component_spec.md) — コンポーネント・アーキテクチャー
-    * [UI/UX 仕様](./ui.md) — 横断的な UI 振る舞い
+    * [UI/UX 仕様](./ui.md) — 横断的な UI 挙動
     * [Viewport 整合性仕様](./ui-viewport.md) — Viewport 整合性仕様
-    * [設計ブランディング仕様](./design_spec.md) — 設計・ブランディング仕様
+    * [デザインブランディング仕様](./design_spec.md) — デザイン・ブランディング仕様
 * 永続化 / キャッシュ
     * [ローカル・ストレージ仕様](./storage_spec.md) — ローカル・ストレージ/スナップショット仕様
-    * [キャッシュ仕様](./cache_spec.md) — TTL / Freshness / Invalidation
+    * [キャッシュ仕様](./cache_spec.md) — 有効期限 (TTL) / 鮮度 / 無効化
     * [iOS/iPadOS ストレージ仕様](./ios_spec.md) — ストレージの iOS/iPadOS 差分
     * [Android ストレージ仕様](./android_spec.md) — ストレージの Android 差分
 * 統計
@@ -71,10 +72,13 @@
     * [Kotlin Multiplatform (KMP) 仕様](./kmp_spec.md) — KMP 実施時のモジュール配置と移行段階
 * テスト
     * [テスト仕様](./testing_spec.md) — 何をテストするか
-    * [テスト結果](./test-results.md) — 自動生成されるテスト結果
+    * [テスト結果](../docs_mod/test-results.md) — 自動生成されるテスト結果
 * 運用
     * [リリース仕様](./release.md) — リリース条件
     * [CI/CD 仕様](./cicd.md) — CI/CD パイプライン
+* 実装
+    * [実装タスク](../docs_mod/implementation.md) — 進行中 initiative のタスク。時期はユースケースの優先順位
+    * [実装状況](../docs_mod/status.md) — 進行中 initiative の進捗
 
 ## 参照資料
 
@@ -186,7 +190,7 @@
     * [データ ストレージとファイル ストレージの概要 | App data and files | Android Developers](https://developer.android.com/training/data-storage?authuser=108)
     * [アプリ固有のファイルにアクセスする | App data and files | Android Developers](https://developer.android.com/training/data-storage/app-specific)
     * [Room を使用してローカル データベースにデータを保存する | App data and files | Android Developers](https://developer.android.com/training/data-storage/room?hl=ja)
-    * [アプリ アーキテクチャ: データレイヤー - DataStore - デベロッパー向け Android | App architecture | Android Developers](https://developer.android.com/topic/libraries/architecture/datastore)
+    * [アプリ アーキテクチャー: データレイヤー - DataStore - デベロッパー向け Android | App architecture | Android Developers](https://developer.android.com/topic/libraries/architecture/datastore)
     * [セキュリティ ガイドライン | Security | Android Developers](https://developer.android.com/privacy-and-security/security-tips)
     * [アプリのセキュリティを強化する | Security | Android Developers](https://developer.android.com/privacy-and-security/security-best-practices)
 * CI/CD 仕様
