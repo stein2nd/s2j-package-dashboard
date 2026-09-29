@@ -2,6 +2,13 @@
 
 ## unreleased
 
+## 0.0.4 - 2026-09-29
+
+### Changed
+
+* `docs/specs.md` の入口節をですます調にそろえる
+* `*.code-workspace` を `.gitignore` に追加し、ローカルのワークスペースファイルを Git の追跡対象外にする
+
 ## 0.0.4 - 2026-09-28
 
 ### Added
