@@ -2,6 +2,12 @@
 
 ## unreleased
 
+## 0.0.4 - 2026-10-02
+
+### Changed
+
+* 廃止された `npm.enableScriptExplorer` を `.vscode/settings.json` から外し、`json.schemaDownload.enable` を有効にする
+
 ## 0.0.4 - 2026-09-29
 
 ### Changed
