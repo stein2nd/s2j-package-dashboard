@@ -63,7 +63,7 @@ Viewport / サイズ・クラス / 向きの要件は [`ui-viewport.md`](./ui-vi
 ## プラットフォームの独立性
 
 ネイティブ UI API をドメイン仕様に持ち込まないことは [`architecture.md`](./architecture.md) を正本とします。
-本仕様は、「SwiftUI のコンポーネント API をドメインに漏らさない」ことのみを定めます。Android 版の開発に着手したあとの Jetpack Compose も、同様にドメインへ漏らしません。時期は [`overview.md`](./overview.md) を正本とします。
+本仕様は、「SwiftUI のコンポーネント API をドメインに漏らさない」ことのみを定めます。Android 版の開発に着手したあとの Jetpack Compose も、同様にドメインに漏らしません。時期は [`overview.md`](./overview.md) を正本とします。
 
 ## 画面、ナビゲーション、Viewport
 

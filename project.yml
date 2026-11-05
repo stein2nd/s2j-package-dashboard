@@ -1,0 +1,95 @@
+name: s2j-package-dashboard
+options:
+  bundleIdPrefix: com.s2j
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: en
+  usesTabs: false
+  indentWidth: 4
+  tabWidth: 4
+  xcodeVersion: "26.3"
+  projectFormat: xcode16_3
+
+packages:
+  S2JPackageDashboardCore:
+    path: .
+
+targets:
+  S2JPackageDashboard-iOS:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: S2JPackageDashboardApp
+        excludes:
+          - "**/*.md"
+          - info.plist
+          - S2JPackageDashboardApp.entitlements
+    dependencies:
+      - package: S2JPackageDashboardCore
+        product: S2JPackageDashboardCore
+    settings:
+      base:
+        PRODUCT_NAME: S2JPackageDashboard
+        PRODUCT_BUNDLE_IDENTIFIER: com.s2j.S2JPackageDashboard
+        SWIFT_VERSION: "6.3"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: S2J Package Dashboard
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+        CODE_SIGN_STYLE: Automatic
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MACCATALYST: false
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: true
+      configs:
+        Debug:
+          SWIFT_OPTIMIZATION_LEVEL: -Onone
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) DEBUG"
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: -O
+
+  S2JPackageDashboardTests-iOS:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: Tests/S2JPackageDashboardAppTests
+    dependencies:
+      - target: S2JPackageDashboard-iOS
+      - package: S2JPackageDashboardCore
+        product: S2JPackageDashboardCore
+    settings:
+      base:
+        PRODUCT_NAME: S2JPackageDashboardTests
+        PRODUCT_BUNDLE_IDENTIFIER: com.s2j.S2JPackageDashboardTests
+        SWIFT_VERSION: "6.3"
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Automatic
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        # .app 名はホストの PRODUCT_NAME (S2JPackageDashboard.app)。ターゲット名 (S2JPackageDashboard-iOS) ではない。
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/S2JPackageDashboard.app/S2JPackageDashboard"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+      configs:
+        Debug:
+          SWIFT_OPTIMIZATION_LEVEL: -Onone
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: -O
+
+schemes:
+  S2JPackageDashboard-iOS:
+    build:
+      targets:
+        S2JPackageDashboard-iOS: all
+    test:
+      targets:
+        - S2JPackageDashboardTests-iOS
+      destination:
+        platform: iOS Simulator
+    run:
+      config: Debug
+      destination:
+        platform: iOS Simulator
+    archive:
+      config: Release

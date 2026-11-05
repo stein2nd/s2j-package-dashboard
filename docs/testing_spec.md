@@ -382,7 +382,7 @@ Packagist 認証の実装時期は [`use_cases.md` 優先順位-1](./use_cases.m
 * パッケージリスト
 * パッケージ詳細
 * 統計
-* 設定 (Packagist のクレデンシャル (資格情報) 節と、そこへ進むナビゲーションは [`use_cases.md` 優先順位-1](./use_cases.md#優先順位-1) の UC-16。設定画面の残りは [`use_cases.md` 優先順位-2](./use_cases.md#優先順位-2) の UC-31)
+* 設定 (Packagist のクレデンシャル (資格情報) 節と、そこに進むナビゲーションは [`use_cases.md` 優先順位-1](./use_cases.md#優先順位-1) の UC-16。設定画面の残りは [`use_cases.md` 優先順位-2](./use_cases.md#優先順位-2) の UC-31)
 * 認証 (Packagist は [`use_cases.md` 優先順位-1](./use_cases.md#優先順位-1) の UC-16。GitHub 認証以降は [`use_cases.md` 優先順位-2](./use_cases.md#優先順位-2) の UC-17〜 UC-20)
 
 ## UI テスト

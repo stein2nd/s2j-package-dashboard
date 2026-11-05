@@ -2,6 +2,25 @@
 
 ## unreleased
 
+## 0.0.4 - 2026-11-06
+
+### Added
+
+* iOS/iPadOS アプリケーションの初期実装 (SwiftUI)
+    * `S2JPackageDashboardCore`: ドメイン型、`LoadDashboardUseCase` (UC-01)、ローカル JSON 永続化
+    * ダッシュボード、サイドバー遷移 (ダッシュボード / パッケージ / 統計 / 設定)、Packagist 認証画面のプレースホルダー
+* `project.yml` と XcodeGen 用の `S2JPackageDashboard-iOS` スキーム
+* `S2JPackageDashboardCoreTests` および iOS ユニットテスト・ターゲット
+
+### Changed
+
+* `Package.swift` に共有コアライブラリと `swift test` 用ターゲットを追加
+* `.github/workflows/swift-test.yml` のプロジェクト名を本リポジトリ向けに修正
+* iOS テストの `TEST_HOST` を `S2JPackageDashboard.app` に合わせる
+* `docs_mod/implementation.md` / `status.md` で UC-01 / UC-21を一部完了として更新
+* `S2JPackageDashboardApp/Assets.xcassets/Contents.json` を有効な JSON に修復
+* `@s2j/docs-linter` を ^1.0.32に更新し、`glob` / `minimatch` の overrides を追加
+
 ## 0.0.4 - 2026-10-02
 
 ### Changed
@@ -40,7 +59,7 @@
     * `models_spec.md` の型名と層の書き方を整理
         * 見出しに型名を併記 (マイ・パッケージ `MyPackage`、お気に入り `Favorite`、統計のスナップショット `StatisticsSnapshot` など)
         * モデル層を具体例つきの箇条書きにし、UI モデルをプレゼンテーション・モデルに改称
-        * `PackageType` の節をパッケージ名の前へ移し、統計仕様への参照を見出しリンクにする
+        * `PackageType` の節をパッケージ名の前に移し、統計仕様への参照を見出しリンクにする
     * 実装時期をユースケースの優先順位にそろえる
         * 優先順位-1: ダッシュボード、Packagist 認証 (クレデンシャル節とそこへの経路)、管理対象の取得、一覧、検索、詳細、統計、ローカルデータ、オフライン、エラー復旧
         * 優先順位-2: お気に入り、パッケージ更新、GitHub 認証、クレデンシャルの更新・削除、認証ステータス、ナビゲーション復元、ディープリンク、設定の残り、About。初期バージョンの最優先ではなく、v1.1または v1.2で可能な限り早く実装する。将来予定ではない
