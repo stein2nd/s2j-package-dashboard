@@ -72,6 +72,51 @@ GitHub アクションでは、Secret を必要なジョブに限定して、利
 
 実際のワークフローは、実装上の保守性を考慮して統合してかまいません。
 
+### リポジトリ上のワークフロー (現状)
+
+2026-11-06時点の実装は、下記の通りです。詳細は `.github/workflows/` を正本とします。
+
+| ファイル | 目的 | 主なジョブ |
+| --- | --- | --- |
+| `swift-test.yml` | Swift / iOS のビルド・テスト | `test-macos`、`test-ios`、`build-release` |
+| `docs-lint.yml` | 仕様ドキュメントの Lint | `lint-docs` |
+
+* トリガー: `main` / `develop` への push と PR (ドキュメント Lint は Markdown 等のパス変更時)
+* ランナー: Swift / iOS は `macos-26`、ドキュメント Lint は `ubuntu-latest`
+* Xcode: Swift v6.3+ (`swift-tools-version: 6.3`) のため、CI では Xcode v26.5を優先し、利用可能な v26.x アプリケーションを `xcode-select` で選択します
+
+#### JavaScript ランタイム (サードパーティ製アクション)
+
+GitHub ホステッド runner では、Node.js v20向けアクションは非推奨です。JavaScript ベースのアクションは、**Node.js v24ランタイム** のメジャー・タグを用います。
+
+* 例: `actions/checkout@v5`、`actions/upload-artifact@v6`、`codecov/codecov-action@v6`
+* ドキュメント Lint: `actions/setup-node` で Node.js v24
+
+アクションのバージョンは [サードパーティ製アクションのセキュリティ](#サードパーティ製アクションのセキュリティ) の方針に従い、メジャー・タグまたは SHA で固定します。
+
+#### macOS (`test-macos`)
+
+* `swift test --enable-code-coverage` でユニットテストとカバレッジを取得します
+* Codecov へは `files` でカバレッジ XML のパスを指定します (v5以降、`file` は非推奨)
+* 公開リポジトリで Token 不要のアップロードが有効な場合を除き、`CODECOV_TOKEN` は Secret で渡します
+
+#### iOS シミュレーター・テスト (`test-ios`)
+
+1. `project.yml` から XcodeGen で Xcode プロジェクトを生成します (`.xcodeproj` はリポジトリにコミットしません)
+2. 利用可能な iOS シミュレーター・ランタイムを、26.1→26.0→18.5→任意の順で選択します
+3. シミュレーターを起動し、`xcodebuild build-for-testing` を実行します
+4. 続けて `xcodebuild test-without-building` (失敗時は `xcodebuild test` にフォールバック) でテストします
+5. `project.yml` で `--app-icon AppIcon` を指定する場合、`Assets.xcassets` に `AppIcon` を含めます
+6. ユニットテスト・ホストの `TEST_HOST` は、実際に生成される `.app` 名 (例: `S2JPackageDashboard.app`) に合わせます
+7. 失敗時の診断ログは `actions/upload-artifact@v6` で保存します
+
+iOS の Codecov アップロードは、現状 xcresult からカバレッジ XML を生成していないため **best-effort** とします。レポートがない場合は `handle_no_reports_found` により CI を失敗させません。
+
+#### リリース・ビルド (`build-release`)
+
+* `test-macos` と `test-ios` の成功後に実行します
+* `swift build -c release` の成果物 (`.build/release/`) を GitHub アクション成果物として保存します
+
 ## ワークフローの命名
 
 ワークフロー名は、目的を明確にします。

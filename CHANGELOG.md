@@ -2,6 +2,22 @@
 
 ## unreleased
 
+## 0.0.5 - 2026-11-06
+
+### Added
+
+* iOS 向け `AppIcon.appiconset` (XcodeGen の `--app-icon AppIcon` と CI ビルド用のプレースホルダー)
+
+### Changed
+
+* GitHub Actions (`swift-test.yml`)
+    * iOS: `build-for-testing` の後に `test-without-building` を実行する順序に変更
+    * macOS カバレッジ: Codecov Action v5の入力 `files` に合わせ、レポート未検出時は `handle_no_reports_found` を指定
+    * Node.js v24非推奨警告の解消: `actions/checkout@v5`、`actions/upload-artifact@v6`、`codecov/codecov-action@v6`
+    * iOS 失敗時の診断ログを成果物として保存
+* GitHub Actions (`docs-lint.yml`): `actions/checkout@v5`、Node.js v24
+* [`docs/cicd.md`](./docs/cicd.md) に、上記ワークフロー構成と iOS テスト手順の現状を追記
+
 ## 0.0.4 - 2026-11-06
 
 ### Added
