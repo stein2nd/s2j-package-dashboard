@@ -63,9 +63,11 @@ jobs:
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v5
       with:
-        file: .build/coverage/coverage.xml
+        files: .build/coverage/coverage.xml
         flags: macos
         name: macos-coverage
+        fail_ci_if_error: false
+        handle_no_reports_found: true
 
   test-ios:
     runs-on: macos-26
@@ -538,7 +540,7 @@ jobs:
       # ----- Upload diagnostics as artifact so you can inspect next run logs -----
       - name: Upload diagnostics artifact
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ios-test-diagnostics
           path: ${{ env.LOG_DIR }}
@@ -546,12 +548,13 @@ jobs:
       # ----- Attempt to upload coverage to Codecov (no-fail) -----
       - name: Upload coverage to Codecov (iOS) (best-effort)
         if: ${{ always() }}
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
-          file: .build/coverage/coverage.xml
+          files: .build/coverage/coverage.xml
           flags: ios
           name: ios-coverage
           fail_ci_if_error: false
+          handle_no_reports_found: true
 
   build-release:
     runs-on: macos-26
@@ -608,7 +611,7 @@ jobs:
         swift build -c release
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: s2j-package-dashboard-build
         path: .build/release/
