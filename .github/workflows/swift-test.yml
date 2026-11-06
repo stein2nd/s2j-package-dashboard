@@ -61,7 +61,7 @@ jobs:
         swift test --enable-code-coverage
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v5
+      uses: codecov/codecov-action@v6
       with:
         files: .build/coverage/coverage.xml
         flags: macos
@@ -540,7 +540,7 @@ jobs:
       # ----- Upload diagnostics as artifact so you can inspect next run logs -----
       - name: Upload diagnostics artifact
         if: ${{ always() }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: ios-test-diagnostics
           path: ${{ env.LOG_DIR }}
@@ -548,7 +548,7 @@ jobs:
       # ----- Attempt to upload coverage to Codecov (no-fail) -----
       - name: Upload coverage to Codecov (iOS) (best-effort)
         if: ${{ always() }}
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           files: .build/coverage/coverage.xml
           flags: ios
@@ -611,7 +611,7 @@ jobs:
         swift build -c release
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: s2j-package-dashboard-build
         path: .build/release/
